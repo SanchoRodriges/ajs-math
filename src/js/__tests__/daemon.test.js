@@ -42,3 +42,26 @@ test('Проверка на дурман: задан', () => {
 
   expect(warior.getStoned()).toEqual(true);
 });
+
+
+test('Проверка на атаку: без дурмана на соседней клетке', () => {
+  const warior = new Daemon('Daemon');
+  warior.setAttack(1);
+
+  expect(warior.getAttack()).toEqual(100);
+});
+
+test('Проверка на атаку: через две клетки', () => {
+  const warior = new Daemon('Daemon');
+  warior.setAttack(2);
+
+  expect(warior.getAttack()).toEqual(90);
+});
+
+test('Проверка на атаку: через две клетки с дурманом', () => {
+  const warior = new Daemon('Daemon');
+  warior.setStoned();
+  warior.setAttack(2);
+  
+  expect(warior.getAttack()).toEqual(85);
+});

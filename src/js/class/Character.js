@@ -41,4 +41,9 @@ export default class Character {
       this.attack -= Math.log2(cell) * 5;
     }
   }
+
+  // получаем уровень атаки
+  getAttack() {
+    return this.attack;
+  }
 }
